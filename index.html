@@ -63,6 +63,8 @@
 
     .book-stage { perspective: 1600px; }
     .book-page { transform-origin: left center; transition: transform .35s ease, opacity .35s ease; font-family: Georgia, serif; }
+    .book-page.flip-next { transform: rotateY(-90deg); opacity: .3; }
+    .book-page.flip-prev { transform: rotateY(90deg); opacity: .3; }
 
     canvas { touch-action: none; }
 
@@ -82,17 +84,16 @@
       <div class="w-3.5 h-3.5 rounded-full bg-[#27c93f] border border-green-600/30"></div>
     </div>
 
-    <nav class="flex items-center gap-2 sm:gap-3 overflow-x-auto py-1">
-      <button onclick="openTabModal('home')" class="nav-pill active px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">home</button>
-      <button onclick="openTabModal('sobre')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">sobre</button>
-      <button onclick="openTabModal('galeria')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">📁 galeria livre</button>
-      <button onclick="openTabModal('contato')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">contato</button>
-      <button onclick="openTabModal('pergunte')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">pergunte aqui</button>
-      <button onclick="openTabModal('desenhar')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">desenhar</button>
+    <nav class="flex items-center gap-2 sm:gap-4 overflow-x-auto py-1">
+      <button onclick="openTabModal('home')" class="nav-pill active px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">home</button>
+      <button onclick="openTabModal('sobre')" class="nav-pill px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">sobre</button>
+      <button onclick="openTabModal('contato')" class="nav-pill px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">contato</button>
+      <button onclick="openTabModal('pergunte')" class="nav-pill px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">pergunte aqui</button>
+      <button onclick="openTabModal('desenhar')" class="nav-pill px-5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">desenhar</button>
     </nav>
 
     <div class="flex items-center justify-end w-32 text-xs font-bold text-stone-700">
-      <button onclick="openCustomizeBgModal()" title="Personalizar Fundo (Admin)" class="mr-2 px-2 py-1 bg-white/40 hover:bg-white/70 rounded-lg border border-white/50 text-stone-800 transition-colors">🎨</button>
+      <button onclick="openCustomizeBgModal()" title="Personalizar Fundo" class="mr-2 px-2 py-1 bg-white/40 hover:bg-white/70 rounded-lg border border-white/50 text-stone-800 transition-colors">🎨</button>
       <span class="bg-white/40 px-3 py-1 rounded-lg border border-white/50 text-stone-800 shadow-xs">CLBI-1 OS</span>
     </div>
   </header>
@@ -100,93 +101,112 @@
   <!-- ÁREA DE TRABALHO / DESKTOP -->
   <main class="flex-1 relative p-6 sm:p-12 min-h-[calc(100vh-70px)] flex flex-col justify-between">
     
+    <!-- CÍRCULO CONCEITUAL CENTRALIZADO -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
       <div id="heroCircle" class="w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] rounded-full opacity-80 transition-colors duration-300" style="background-color: #cbbaa9;"></div>
     </div>
 
+    <!-- GRADE DE ÍCONES -->
     <div class="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-6 sm:gap-8 max-w-6xl mx-auto w-full pt-4 items-start justify-items-center">
+      
+      <!-- Ícone 1: Pasta CLBI-1 -->
       <div onclick="openTabModal('home')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-[#ffc526] border-2 border-white/90 rounded-3xl shadow-lg flex items-center justify-center relative">
-          <svg class="w-11 h-11 text-amber-900/80" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path></svg>
+          <svg class="w-11 h-11 text-amber-900/80" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Pasta CLBI-1</span>
       </div>
 
+      <!-- Ícone 2: Yume.jpg -->
       <div onclick="openCharacterModal('yume')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-rose-400 to-pink-500 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">Y</span></div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-rose-400 to-pink-500 shadow-inner">
+            <span class="text-3xl font-black text-white drop-shadow-md">Y</span>
+          </div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Yume.jpg</span>
       </div>
 
+      <!-- Ícone 3: Elijah.jpg -->
       <div onclick="openCharacterModal('elijah')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">E</span></div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 shadow-inner">
+            <span class="text-3xl font-black text-white drop-shadow-md">E</span>
+          </div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Elijah.jpg</span>
       </div>
 
+      <!-- Ícone 4: Piatã.jpg -->
       <div onclick="openCharacterModal('piata')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-400 to-teal-600 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">P</span></div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-400 to-teal-600 shadow-inner">
+            <span class="text-3xl font-black text-white drop-shadow-md">P</span>
+          </div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Piatã.jpg</span>
       </div>
 
+      <!-- Ícone 5: Tom.jpg -->
       <div onclick="openCharacterModal('tom')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">T</span></div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 shadow-inner">
+            <span class="text-3xl font-black text-white drop-shadow-md">T</span>
+          </div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Tom.jpg</span>
       </div>
 
+      <!-- Ícone 6: Joaquin.jpg -->
       <div onclick="openCharacterModal('joaquin')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-600 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">J</span></div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-600 shadow-inner">
+            <span class="text-3xl font-black text-white drop-shadow-md">J</span>
+          </div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Joaquin.jpg</span>
       </div>
 
+      <!-- Ícone 7: Explorar -->
       <div onclick="openExploreModal()" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-[#7fb3c9] border-2 border-white/90 rounded-3xl shadow-lg flex items-center justify-center relative">
-          <svg class="w-11 h-11 text-sky-950/75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" fill="currentColor" stroke-linejoin="round"></path></svg>
+          <svg class="w-11 h-11 text-sky-950/75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" fill="currentColor" stroke-linejoin="round"></path>
+          </svg>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Explorar</span>
       </div>
 
+      <!-- Ícone 8: Livro -->
       <div onclick="openBookModal()" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-[#a0522d] border-2 border-white/90 rounded-3xl shadow-lg flex items-center justify-center">
           <svg class="w-11 h-11 text-amber-50/90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13" stroke-linejoin="round"></path></svg>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Livro</span>
       </div>
+
     </div>
 
+    <!-- RODAPÉ DA ÁREA DE TRABALHO -->
     <div class="relative z-10 flex justify-between items-center text-xs font-semibold text-white/90 pt-6">
       <span>Área de Trabalho • Sistema CLBI-1</span>
       <span class="text-[11px] opacity-75">Sincronizado Localmente ✨</span>
     </div>
   </main>
 
-  <!-- WIDGET DE BALÃO DE FALA FLUTUANTE -->
+  <!-- WIDGET DE BALÃO DE FALA FLUTUANTE (CANTO INFERIOR ESQUERDO) -->
   <div id="speechWidget" class="fixed bottom-4 left-4 z-40 max-w-xs sm:max-w-sm flex items-end gap-3 group">
-    <div class="w-12 h-12 rounded-full bg-amber-800 border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-lg shrink-0">💬</div>
+    <!-- Imagem/Avatar do Mascote/Criador -->
+    <div class="w-12 h-12 rounded-full bg-amber-800 border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
+      💬
+    </div>
+    <!-- Balão de Diálogo -->
     <div class="relative bg-white/90 backdrop-blur-md border border-stone-200 p-3 rounded-2xl shadow-xl text-xs font-medium text-stone-800 leading-relaxed">
       <p id="speechText">Olá! Bem-vindo ao desktop retro da missão CLBI-1! Explorar e interagir à vontade. ✨</p>
       <button onclick="editSpeechBubble()" class="mt-1 text-[10px] font-bold text-amber-800 underline hover:text-amber-900 block">✏️ Editar Aviso (Admin)</button>
-    </div>
-  </div>
-
-  <!-- MODAL DE SENHA PERSONALIZADO -->
-  <div id="passwordModal" class="fixed inset-0 bg-stone-900/50 backdrop-blur-sm hidden items-center justify-center p-4 z-[100]">
-    <div class="retro-window w-full max-w-sm p-5 space-y-4 shadow-2xl bg-white">
-      <h3 class="text-sm font-bold text-stone-900">🔒 Autenticação de Administrador</h3>
-      <p class="text-xs text-stone-600">Introduza a senha de administrador para autorizar esta alteração:</p>
-      <input type="password" id="adminPasswordInput" placeholder="Sua senha..." class="w-full px-3 py-2 border rounded-lg text-xs font-semibold focus:outline-none focus:border-amber-800">
-      <div class="flex gap-2">
-        <button onclick="submitAdminPassword()" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-bold py-2 rounded-lg text-xs uppercase">Confirmar</button>
-        <button onclick="closePasswordModal()" class="px-4 bg-stone-200 hover:bg-stone-300 font-bold py-2 rounded-lg text-xs uppercase">Cancelar</button>
-      </div>
     </div>
   </div>
 
@@ -207,6 +227,8 @@
       </div>
 
       <div class="p-6 overflow-y-auto space-y-6 flex-1 bg-[#FAF8F5]">
+        
+        <!-- MODO LEITURA -->
         <div id="viewContainer" class="space-y-6">
           <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center border-b border-stone-200 pb-5">
             <div id="viewAvatar" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-2 border-white shadow-md flex-shrink-0 flex items-center justify-center text-3xl font-black text-white bg-stone-600 overflow-hidden"></div>
@@ -237,6 +259,7 @@
           </div>
         </div>
 
+        <!-- MODO EDIÇÃO DA FICHA (ADMIN) -->
         <form id="editCharacterForm" onsubmit="saveCharacterEdits(event)" class="hidden space-y-3 bg-white p-4 border border-amber-300 rounded-xl">
           <h3 class="text-xs font-bold text-amber-900 uppercase">Editar Dados do Personagem</h3>
           <input type="text" id="editCharName" placeholder="Nome Completo" class="w-full px-3 py-1.5 border rounded text-xs font-bold">
@@ -254,25 +277,29 @@
           </div>
         </form>
 
+        <!-- SEÇÃO DE COMENTÁRIOS -->
         <div class="pt-4 border-t border-stone-200">
           <h3 class="text-sm font-bold text-stone-900 mb-3 flex items-center justify-between">
             <span>💬 Comentários</span>
             <span id="commentBadge" class="text-xs bg-stone-200 text-stone-700 px-2 py-0.5 rounded-full font-bold">0</span>
           </h3>
+
           <form onsubmit="handleAddComment(event)" class="space-y-2 mb-4">
             <div class="flex gap-2">
-              <input type="text" id="commentAuthor" placeholder="Seu Nome" required class="w-1/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium">
-              <input type="text" id="commentText" placeholder="Escreva um comentário..." required class="w-2/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium">
+              <input type="text" id="commentAuthor" placeholder="Seu Nome" required class="w-1/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium focus:outline-none focus:border-stone-500">
+              <input type="text" id="commentText" placeholder="Escreva um comentário..." required class="w-2/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium focus:outline-none focus:border-stone-500">
             </div>
-            <button type="submit" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-semibold py-1.5 rounded-lg text-xs uppercase tracking-wider">Publicar Comentário</button>
+            <button type="submit" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-semibold py-1.5 rounded-lg text-xs uppercase tracking-wider transition-colors">Publicar Comentário</button>
           </form>
+
           <div id="commentsList" class="space-y-2"></div>
         </div>
+
       </div>
     </div>
   </div>
 
-  <!-- JANELA/MODAL DE NAVEGAÇÃO -->
+  <!-- JANELA/MODAL DE NAVEGAÇÃO SUPERIOR -->
   <div id="tabModal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
     <div class="retro-window w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
       <div class="retro-window-header px-4 py-3 flex items-center justify-between">
@@ -307,11 +334,11 @@
       <div class="p-5 bg-[#FAF8F5] space-y-4 text-xs font-medium text-stone-700 leading-relaxed overflow-y-auto">
         <form id="exploreForm" onsubmit="handleExploreSubmit(event)" class="space-y-2 p-3 bg-white border border-stone-200 rounded-xl shadow-xs">
           <p id="exploreFormLabel" class="text-[11px] font-bold uppercase tracking-wider text-stone-500">Adicionar informação (Requer Senha)</p>
-          <input type="text" id="exploreTitle" placeholder="Título" maxlength="200" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-semibold">
-          <textarea id="exploreContent" rows="4" placeholder="Escreva aqui..." maxlength="10000" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium"></textarea>
+          <input type="text" id="exploreTitle" placeholder="Título" maxlength="200" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-semibold focus:outline-none focus:border-stone-500">
+          <textarea id="exploreContent" rows="4" placeholder="Escreva aqui..." maxlength="10000" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium focus:outline-none focus:border-stone-500"></textarea>
           <div class="flex gap-2">
-            <button type="submit" id="exploreSubmitBtn" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-bold py-1.5 rounded-lg text-xs uppercase">Salvar / Adicionar</button>
-            <button type="button" id="exploreCancelBtn" onclick="cancelExploreEdit()" class="hidden px-4 bg-stone-200 font-bold rounded-lg text-xs uppercase">Cancelar</button>
+            <button type="submit" id="exploreSubmitBtn" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-bold py-1.5 rounded-lg text-xs uppercase tracking-wider transition-colors">Salvar / Adicionar</button>
+            <button type="button" id="exploreCancelBtn" onclick="cancelExploreEdit()" class="hidden px-4 bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold py-1.5 rounded-lg text-xs uppercase tracking-wider transition-colors">Cancelar</button>
           </div>
         </form>
         <div id="exploreList" class="space-y-3"></div>
@@ -339,5 +366,531 @@
           <button onclick="deleteBookPage()" class="underline text-rose-700">apagar esta página</button>
         </div>
         <form id="bookForm" onsubmit="saveBookPage(event)" class="hidden space-y-2 p-3 bg-white rounded-xl">
-          <input id="bookTitle" placeholder="Título do capítulo (opcional)" maxlength="200" class="w-full px-3 py-1.5 border rounded text-xs">
-          <textarea id="bookContent" rows="8" placeholder="Escreva a história..." maxlength="20000" class="w-full px-3 py-1.5 border rounded text-
+          <input id="bookTitle" placeholder="Título do capítulo (opcional)" maxlength="200" class="w-full px-3 py-1.5 border border-stone-300 rounded-lg text-xs">
+          <textarea id="bookContent" rows="8" placeholder="Escreva a história..." maxlength="20000" class="w-full px-3 py-1.5 border border-stone-300 rounded-lg text-xs"></textarea>
+          <div class="flex gap-2">
+            <button type="submit" class="flex-1 bg-amber-800 text-white font-bold py-1.5 rounded-lg text-xs uppercase">Salvar (Requer Senha)</button>
+            <button type="button" onclick="document.getElementById('bookForm').classList.add('hidden')" class="px-4 bg-stone-200 font-bold rounded-lg text-xs uppercase">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_PASS = "@DuD2010";
+
+    function checkAdminAuth() {
+      const pass = prompt("Introduza a senha de administrador para guardar alterações:");
+      if (pass === ADMIN_PASS) return true;
+      alert("Senha incorreta! Alteração não autorizada.");
+      return false;
+    }
+
+    const defaultCharacters = {
+      yume: { id: 'yume', name: 'Yume Miller', role: 'Capitã da CLBI-1, responsável pelas Operações de Voo e Pesquisa Científica.', age: '28 anos', birth: '01/01/2041', appearance: 'Mulher de cabelos lisos castanho-claros, olhos heterocromáticos (um verde e outro azul), pele clara, de origem nipo-brasileira.', personality: 'Ansiosa sob pressão, pragmática, focada, corajosa e levemente sarcástica.', bio: 'Líder da missão histórica de 2069. Após um salto temporal de mais de 7 mil anos, vê-se num futuro pós-apocalíptico onde começa a sofrer mutações físicas.' },
+      elijah: { id: 'elijah', name: 'Elijah Martins', role: 'Comunicação e Relatórios.', age: '34 anos', birth: '15/05/2035', appearance: 'Mulher negra, cabelos pretos cacheados, olhos verdes, nacionalidade estadunidense.', personality: 'Direta, perspicaz, protetora com os colegas e dona de um humor ácido.', bio: 'Responsável por manter o contacto contínuo com o centro de controlo em Terra e documentar a missão.' },
+      piata: { id: 'piata', name: 'Piatã', role: 'Suporte à Vida e Higiene.', age: '30 anos', birth: '10/11/2038', appearance: 'Homem de origem indígena (Wailacki), pele parda, olhos castanho-escuros, porte físico forte.', personality: 'Calmo, centrado, observador e com uma forte presença.', bio: 'Responsável pela gestão dos sistemas vitais da nave (oxigênio, água e reciclagem de ar).' },
+      tom: { id: 'tom', name: 'Tom Collins', role: 'Manutenção, Reparos e Segurança.', age: '59 anos', birth: '22/03/2010', appearance: 'Homem branco, ruivo com fios grisalhos, olhos azuis marcantes, nacionalidade russa.', personality: 'Severo, disciplinado, impaciente com distrações.', bio: 'Veterano de guerra russo e o membro mais velho da tripulação.' },
+      joaquin: { id: 'joaquin', name: 'Joaquin Bezerra', role: 'Manutenção e Reparos.', age: '25 anos', birth: '05/09/2044', appearance: 'Homem de pele parda, magro e com físico definido, cabelo liso preto, olhos castanho-escuros.', personality: 'Ansioso, falador quando está nervoso, carismático e brincalhão.', bio: 'O membro mais jovem da equipa ao lado de Yume.' }
+    };
+
+    function getCharacters() {
+      const stored = localStorage.getItem('clbi_characters');
+      return stored ? JSON.parse(stored) : defaultCharacters;
+    }
+
+    let activeCharId = null;
+
+    function openCharacterModal(id) {
+      activeCharId = id;
+      const chars = getCharacters();
+      const char = chars[id] || defaultCharacters[id];
+      if (!char) return;
+
+      document.getElementById('modalFileName').textContent = `${char.name.replace(/\s+/g, '_')}.jpg`;
+      document.getElementById('viewName').textContent = char.name;
+      document.getElementById('viewRole').textContent = char.role;
+      document.getElementById('viewAge').textContent = `Idade: ${char.age}`;
+      document.getElementById('viewBirth').textContent = `Nascimento: ${char.birth}`;
+      document.getElementById('viewAppearance').textContent = char.appearance;
+      document.getElementById('viewPersonality').textContent = char.personality;
+      document.getElementById('viewBio').textContent = char.bio;
+
+      const avatarContainer = document.getElementById('viewAvatar');
+      const colorMap = { yume: 'from-rose-400 to-pink-500', elijah: 'from-purple-500 to-indigo-600', piata: 'from-emerald-400 to-teal-600', tom: 'from-amber-400 to-orange-500', joaquin: 'from-cyan-400 to-blue-600' };
+      const gradient = colorMap[char.id] || 'from-stone-500 to-stone-700';
+      avatarContainer.className = `w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-2 border-white shadow-md flex-shrink-0 flex items-center justify-center overflow-hidden bg-gradient-to-br ${gradient}`;
+      avatarContainer.innerHTML = `<span class="text-3xl font-black text-white drop-shadow-md">${char.name.charAt(0)}</span>`;
+
+      document.getElementById('viewContainer').classList.remove('hidden');
+      document.getElementById('editCharacterForm').classList.add('hidden');
+
+      renderComments();
+      const modal = document.getElementById('characterModal');
+      modal.classList.remove('hidden'); modal.classList.add('flex');
+    }
+
+    function closeCharacterModal() {
+      const modal = document.getElementById('characterModal');
+      modal.classList.add('hidden'); modal.classList.remove('flex');
+      activeCharId = null;
+    }
+
+    function toggleEditCharacter() {
+      const form = document.getElementById('editCharacterForm');
+      const view = document.getElementById('viewContainer');
+      if (form.classList.contains('hidden')) {
+        if (!checkAdminAuth()) return;
+        const chars = getCharacters();
+        const char = chars[activeCharId];
+        document.getElementById('editCharName').value = char.name;
+        document.getElementById('editCharRole').value = char.role;
+        document.getElementById('editCharAge').value = char.age;
+        document.getElementById('editCharBirth').value = char.birth;
+        document.getElementById('editCharAppearance').value = char.appearance;
+        document.getElementById('editCharPersonality').value = char.personality;
+        document.getElementById('editCharBio').value = char.bio;
+        form.classList.remove('hidden'); view.classList.add('hidden');
+      } else {
+        form.classList.add('hidden'); view.classList.remove('hidden');
+      }
+    }
+
+    function saveCharacterEdits(e) {
+      e.preventDefault();
+      const chars = getCharacters();
+      chars[activeCharId] = {
+        ...chars[activeCharId],
+        name: document.getElementById('editCharName').value,
+        role: document.getElementById('editCharRole').value,
+        age: document.getElementById('editCharAge').value,
+        birth: document.getElementById('editCharBirth').value,
+        appearance: document.getElementById('editCharAppearance').value,
+        personality: document.getElementById('editCharPersonality').value,
+        bio: document.getElementById('editCharBio').value
+      };
+      localStorage.setItem('clbi_characters', JSON.stringify(chars));
+      openCharacterModal(activeCharId);
+    }
+
+    function getComments() { return JSON.parse(localStorage.getItem('clbi_comments') || '{}'); }
+
+    function renderComments() {
+      if (!activeCharId) return;
+      const allComments = getComments();
+      const list = allComments[activeCharId] || [];
+      document.getElementById('commentBadge').textContent = list.length;
+      const container = document.getElementById('commentsList');
+      if (list.length === 0) {
+        container.innerHTML = `<p class="text-xs text-stone-400 italic">Nenhum comentário ainda.</p>`;
+        return;
+      }
+      container.innerHTML = list.map((c, index) => `
+        <div class="p-3 bg-white border border-stone-200 rounded-xl flex items-start justify-between gap-3 shadow-xs">
+          <div>
+            <span class="text-xs font-bold text-stone-900 block">${escapeHtml(c.author)}</span>
+            <p class="text-xs font-medium text-stone-700 mt-0.5">${escapeHtml(c.text)}</p>
+          </div>
+          <button onclick="deleteComment(${index})" class="text-stone-400 hover:text-rose-500 text-xs font-bold">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function handleAddComment(e) {
+      e.preventDefault();
+      const author = document.getElementById('commentAuthor').value.trim();
+      const text = document.getElementById('commentText').value.trim();
+      if (!author || !text) return;
+      const allComments = getComments();
+      if (!allComments[activeCharId]) allComments[activeCharId] = [];
+      allComments[activeCharId].push({ author, text });
+      localStorage.setItem('clbi_comments', JSON.stringify(allComments));
+      document.getElementById('commentText').value = '';
+      renderComments();
+    }
+
+    function deleteComment(index) {
+      if (!checkAdminAuth()) return;
+      const allComments = getComments();
+      if (allComments[activeCharId]) {
+        allComments[activeCharId].splice(index, 1);
+        localStorage.setItem('clbi_comments', JSON.stringify(allComments));
+        renderComments();
+      }
+    }
+
+    function getExploreData() { return JSON.parse(localStorage.getItem('clbi_explore') || '[]'); }
+    let exploreTab = 'curiosidades';
+    let exploreEditingId = null;
+
+    function renderExploreList() {
+      const container = document.getElementById('exploreList');
+      const items = getExploreData().filter(e => e.tab === exploreTab);
+      if (items.length === 0) {
+        container.innerHTML = `<p class="text-center text-stone-400 py-6">Nenhum registo nesta secção.</p>`;
+        return;
+      }
+      container.innerHTML = items.map(item => `
+        <div class="p-4 bg-white border border-stone-200 rounded-xl shadow-xs">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="text-sm font-bold text-stone-900">${escapeHtml(item.title)}</h3>
+            <div class="flex gap-2 shrink-0">
+              <button onclick="editExploreEntry(${item.id})" class="text-stone-500 hover:text-stone-900 text-xs font-semibold underline">editar</button>
+              <button onclick="deleteExploreEntry(${item.id})" class="text-stone-400 hover:text-rose-500 text-xs font-bold">✕</button>
+            </div>
+          </div>
+          <p class="mt-1.5 text-xs text-stone-800 leading-relaxed whitespace-pre-line">${escapeHtml(item.content)}</p>
+        </div>
+      `).join('');
+    }
+
+    function setExploreTab(tab) {
+      exploreTab = tab;
+      document.querySelectorAll('.explore-tab').forEach(b => b.classList.toggle('active', b.dataset.exploreTab === tab));
+      renderExploreList();
+    }
+
+    function openExploreModal() {
+      document.getElementById('exploreModal').classList.remove('hidden');
+      document.getElementById('exploreModal').classList.add('flex');
+      setExploreTab(exploreTab);
+    }
+
+    function closeExploreModal() {
+      document.getElementById('exploreModal').classList.add('hidden');
+      document.getElementById('exploreModal').classList.remove('flex');
+    }
+
+    function handleExploreSubmit(e) {
+      e.preventDefault();
+      if (!checkAdminAuth()) return;
+      const title = document.getElementById('exploreTitle').value.trim();
+      const content = document.getElementById('exploreContent').value.trim();
+      if (!title && !content) return;
+      let data = getExploreData();
+      if (exploreEditingId) {
+        data = data.map(i => i.id === exploreEditingId ? { ...i, title, content } : i);
+        exploreEditingId = null;
+      } else {
+        data.push({ id: Date.now(), tab: exploreTab, title, content });
+      }
+      localStorage.setItem('clbi_explore', JSON.stringify(data));
+      document.getElementById('exploreTitle').value = '';
+      document.getElementById('exploreContent').value = '';
+      renderExploreList();
+    }
+
+    function editExploreEntry(id) {
+      const data = getExploreData().find(i => i.id === id);
+      if (!data) return;
+      exploreEditingId = id;
+      document.getElementById('exploreTitle').value = data.title;
+      document.getElementById('exploreContent').value = data.content;
+      document.getElementById('exploreCancelBtn').classList.remove('hidden');
+    }
+
+    function cancelExploreEdit() {
+      exploreEditingId = null;
+      document.getElementById('exploreTitle').value = '';
+      document.getElementById('exploreContent').value = '';
+      document.getElementById('exploreCancelBtn').classList.add('hidden');
+    }
+
+    function deleteExploreEntry(id) {
+      if (!checkAdminAuth()) return;
+      const data = getExploreData().filter(i => i.id !== id);
+      localStorage.setItem('clbi_explore', JSON.stringify(data));
+      renderExploreList();
+    }
+
+    function getBookPages() { return JSON.parse(localStorage.getItem('clbi_book') || '[]'); }
+    let bookIndex = 0;
+    let bookEditingId = null;
+
+    function renderBookPage() {
+      const el = document.getElementById('bookPage');
+      const counter = document.getElementById('bookCounter');
+      const pages = getBookPages();
+      if (pages.length === 0) {
+        el.innerHTML = '<p class="text-center text-stone-400 pt-24 text-sm">O livro ainda está em branco.</p>';
+        counter.textContent = '';
+        return;
+      }
+      bookIndex = Math.max(0, Math.min(bookIndex, pages.length - 1));
+      const pg = pages[bookIndex];
+      el.innerHTML = (pg.title ? `<h2 class="text-xl font-bold text-stone-900 mb-4 text-center">${escapeHtml(pg.title)}</h2>` : '') + `<p class="text-sm text-stone-800 leading-7 whitespace-pre-line select-text">${escapeHtml(pg.content)}</p>`;
+      counter.textContent = `Página ${bookIndex + 1} de ${pages.length}`;
+    }
+
+    function openBookModal() {
+      document.getElementById('bookModal').classList.remove('hidden');
+      document.getElementById('bookModal').classList.add('flex');
+      renderBookPage();
+    }
+
+    function closeBookModal() {
+      document.getElementById('bookModal').classList.add('hidden');
+      document.getElementById('bookModal').classList.remove('flex');
+    }
+
+    function turnBookPage(dir) {
+      const pages = getBookPages();
+      const next = bookIndex + dir;
+      if (next < 0 || next >= pages.length) return;
+      bookIndex = next; renderBookPage();
+    }
+
+    function editBookPage(existing) {
+      if (!checkAdminAuth()) return;
+      const pages = getBookPages();
+      const pg = existing ? pages[bookIndex] : null;
+      bookEditingId = pg ? pg.id : null;
+      document.getElementById('bookTitle').value = pg ? pg.title : '';
+      document.getElementById('bookContent').value = pg ? pg.content : '';
+      document.getElementById('bookForm').classList.remove('hidden');
+    }
+
+    function saveBookPage(e) {
+      e.preventDefault();
+      const title = document.getElementById('bookTitle').value.trim();
+      const content = document.getElementById('bookContent').value.trim();
+      if (!title && !content) return;
+      let pages = getBookPages();
+      if (bookEditingId) {
+        pages = pages.map(p => p.id === bookEditingId ? { ...p, title, content } : p);
+      } else {
+        pages.push({ id: Date.now(), title, content });
+        bookIndex = pages.length - 1;
+      }
+      localStorage.setItem('clbi_book', JSON.stringify(pages));
+      document.getElementById('bookForm').classList.add('hidden');
+      renderBookPage();
+    }
+
+    function deleteBookPage() {
+      if (!checkAdminAuth()) return;
+      let pages = getBookPages();
+      if (!pages[bookIndex]) return;
+      pages.splice(bookIndex, 1);
+      localStorage.setItem('clbi_book', JSON.stringify(pages));
+      renderBookPage();
+    }
+
+    function getSpeechBubbleText() { return localStorage.getItem('clbi_speech') || "Olá! Bem-vindo ao desktop retro da missão CLBI-1! Explorar e interagir à vontade. ✨"; }
+    function loadSpeechBubble() { document.getElementById('speechText').textContent = getSpeechBubbleText(); }
+    function editSpeechBubble() {
+      if (!checkAdminAuth()) return;
+      const newText = prompt("Edite o texto do balão de fala:", getSpeechBubbleText());
+      if (newText !== null) {
+        localStorage.setItem('clbi_speech', newText);
+        loadSpeechBubble();
+      }
+    }
+
+    function openCustomizeBgModal() {
+      if (!checkAdminAuth()) return;
+      const newBg = prompt("Digite a cor de fundo do Desktop (Hex ou nome CSS):", localStorage.getItem('clbi_bg') || "#bfab9c");
+      const newCircle = prompt("Digite a cor do Círculo Central (Hex ou nome CSS):", localStorage.getItem('clbi_circle') || "#cbbaa9");
+      if (newBg) {
+        localStorage.setItem('clbi_bg', newBg);
+        document.getElementById('desktopBody').style.backgroundColor = newBg;
+      }
+      if (newCircle) {
+        localStorage.setItem('clbi_circle', newCircle);
+        document.getElementById('heroCircle').style.backgroundColor = newCircle;
+      }
+    }
+
+    function loadCustomColors() {
+      const bg = localStorage.getItem('clbi_bg');
+      const circle = localStorage.getItem('clbi_circle');
+      if (bg) document.getElementById('desktopBody').style.backgroundColor = bg;
+      if (circle) document.getElementById('heroCircle').style.backgroundColor = circle;
+    }
+
+    function openTabModal(tab) {
+      const modal = document.getElementById('tabModal');
+      const title = document.getElementById('tabModalTitle');
+      const content = document.getElementById('tabModalContent');
+      document.querySelectorAll('.nav-pill').forEach(b => b.classList.remove('active'));
+
+      if (tab === 'home') {
+        title.textContent = 'home.html';
+        content.innerHTML = `<h2 class="text-lg font-bold text-stone-900">Bem-vindo à Área de Trabalho CLBI-1</h2><p>Esta é a central de operação interativa da missão. Clica nos arquivos de imagem (.jpg) espalhados pelo desktop para consultar a ficha individual de cada integrante da tripulação.</p>`;
+      } else if (tab === 'sobre') {
+        title.textContent = 'sobre.html';
+        const authorNote = localStorage.getItem('clbi_author_note') || "Oiiiiii,\nÉ importante dizer que o projeto CLBI-1, NÃO está pronto e o que fiz até agora é apenas um grande resumo do que quero contar, então as coisas da história ocorrem muito rápido.\n\n— Du ;]";
+        content.innerHTML = `
+          <div class="p-4 bg-white border border-stone-200 rounded-xl shadow-xs space-y-3">
+            <div class="flex justify-between items-center">
+              <h2 class="text-base font-bold text-stone-900">Nota do Autor</h2>
+              <button onclick="editAuthorNote()" class="text-xs text-amber-800 font-bold underline">✏️ Editar Nota (Admin)</button>
+            </div>
+            <p id="authorNoteText" class="text-sm font-medium text-stone-800 leading-relaxed whitespace-pre-line">${escapeHtml(authorNote)}</p>
+          </div>
+        `;
+      } else if (tab === 'contato') {
+        title.textContent = 'contato.html';
+        content.innerHTML = `
+          <div class="p-5 bg-white border border-stone-200 rounded-xl shadow-xs text-center space-y-4">
+            <h2 class="text-lg font-bold text-stone-900">Contato & Redes Sociais</h2>
+            <p class="text-xs font-medium text-stone-600">Acompanhe as novidades e artes do projeto CLBI-1 diretamente no Instagram:</p>
+            <a href="https://www.instagram.com/_yume_works" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white rounded-xl font-bold text-xs tracking-wider shadow-md hover:opacity-95">📸 Instagram: @_yume_works</a>
+          </div>
+        `;
+      } else if (tab === 'pergunte') {
+        title.textContent = 'pergunte-aqui.html';
+        content.innerHTML = `
+          <div class="space-y-4">
+            <h2 class="text-base font-bold text-stone-900">❓ Pergunte Aqui</h2>
+            <form onsubmit="handleAddQuestion(event)" class="space-y-2">
+              <input type="text" id="qaAuthor" placeholder="Seu Nome" required class="w-full px-3 py-1.5 bg-white border rounded text-xs" />
+              <textarea id="qaQuestion" rows="2" placeholder="Digite sua pergunta..." required class="w-full px-3 py-1.5 bg-white border rounded text-xs"></textarea>
+              <button type="submit" class="w-full bg-amber-800 text-white font-bold py-1.5 rounded text-xs uppercase">Enviar Pergunta</button>
+            </form>
+            <div id="qaListContainer" class="space-y-3 pt-2"></div>
+          </div>
+        `;
+        renderQAList();
+      } else if (tab === 'desenhar') {
+        title.textContent = 'desenhar.html';
+        content.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b pb-2">
+              <h2 class="text-base font-bold text-stone-900">🎨 Quadro de Desenhos</h2>
+              <button onclick="clearCanvas()" class="px-3 py-1 bg-rose-100 text-rose-800 rounded text-xs font-bold">Limpar Tela 🗑️</button>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-2.5 border rounded-xl shadow-xs">
+              <div class="flex items-center gap-1.5">
+                <button onclick="setBrushColor('#5c4335')" class="w-6 h-6 rounded-full bg-[#5c4335]"></button>
+                <button onclick="setBrushColor('#e11d48')" class="w-6 h-6 rounded-full bg-rose-600"></button>
+                <button onclick="setBrushColor('#9333ea')" class="w-6 h-6 rounded-full bg-purple-600"></button>
+                <button onclick="setBrushColor('#059669')" class="w-6 h-6 rounded-full bg-emerald-600"></button>
+                <button onclick="setBrushColor('#d97706')" class="w-6 h-6 rounded-full bg-amber-600"></button>
+                <input type="color" id="customColorPicker" onchange="setBrushColor(this.value)" value="#5c4335" class="w-6 h-6 border-0 bg-transparent cursor-pointer" />
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-stone-600">Pincel:</span>
+                <input type="range" min="1" max="25" value="5" oninput="setBrushSize(this.value)" class="w-24 accent-amber-800" />
+              </div>
+            </div>
+            <div class="w-full bg-white border rounded-xl overflow-hidden shadow-inner flex justify-center items-center">
+              <canvas id="paintCanvas" class="w-full h-64 cursor-crosshair bg-white"></canvas>
+            </div>
+          </div>
+        `;
+        setTimeout(initPaintCanvas, 50);
+      }
+
+      modal.classList.remove('hidden'); modal.classList.add('flex');
+    }
+
+    function editAuthorNote() {
+      if (!checkAdminAuth()) return;
+      const current = localStorage.getItem('clbi_author_note') || "Oiiiiii,\nÉ importante dizer que o projeto CLBI-1, NÃO está pronto e o que fiz até agora é apenas um grande resumo do que quero contar, então as coisas da história ocorrem muito rápido.\n\n— Du ;]";
+      const newNote = prompt("Edite a Nota do Autor:", current);
+      if (newNote !== null) {
+        localStorage.setItem('clbi_author_note', newNote);
+        document.getElementById('authorNoteText').textContent = newNote;
+      }
+    }
+
+    function getQuestions() { return JSON.parse(localStorage.getItem('clbi_questions') || '[]'); }
+
+    function renderQAList() {
+      const container = document.getElementById('qaListContainer');
+      const list = getQuestions();
+      if (list.length === 0) {
+        container.innerHTML = `<p class="text-xs text-stone-400 italic">Nenhuma pergunta feita ainda.</p>`;
+        return;
+      }
+      container.innerHTML = list.map((item, index) => `
+        <div class="p-3 bg-white border rounded-xl space-y-2">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold text-stone-900">❓ ${escapeHtml(item.author)}</span>
+              <p class="text-xs font-medium text-stone-800 mt-1">${escapeHtml(item.question)}</p>
+            </div>
+            <button onclick="deleteQuestion(${index})" class="text-stone-400 hover:text-rose-500 text-xs font-bold">✕</button>
+          </div>
+          ${item.answer ? `<div class="p-2 bg-amber-50 border border-amber-200 rounded text-xs"><strong>Resposta (Du):</strong> ${escapeHtml(item.answer)}</div>` : `
+            <button onclick="answerQuestion(${index})" class="text-xs text-stone-500 underline font-semibold">Responder esta pergunta (Admin)</button>
+          `}
+        </div>
+      `).join('');
+    }
+
+    function handleAddQuestion(e) {
+      e.preventDefault();
+      const author = document.getElementById('qaAuthor').value.trim();
+      const question = document.getElementById('qaQuestion').value.trim();
+      if (!author || !question) return;
+      const list = getQuestions();
+      list.push({ author, question, answer: '' });
+      localStorage.setItem('clbi_questions', JSON.stringify(list));
+      renderQAList();
+    }
+
+    function answerQuestion(index) {
+      if (!checkAdminAuth()) return;
+      const answer = prompt("Escreva a resposta:");
+      if (answer) {
+        const list = getQuestions();
+        list[index].answer = answer;
+        localStorage.setItem('clbi_questions', JSON.stringify(list));
+        renderQAList();
+      }
+    }
+
+    function deleteQuestion(index) {
+      if (!checkAdminAuth()) return;
+      const list = getQuestions();
+      list.splice(index, 1);
+      localStorage.setItem('clbi_questions', JSON.stringify(list));
+      renderQAList();
+    }
+
+    let drawingColor = '#5c4335';
+    let brushSize = 5;
+    let isDrawing = false;
+
+    function initPaintCanvas() {
+      const canvas = document.getElementById('paintCanvas');
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width; canvas.height = rect.height;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      function getPos(e) {
+        const r = canvas.getBoundingClientRect();
+        return { x: (e.touches ? e.touches[0].clientX : e.clientX) - r.left, y: (e.touches ? e.touches[0].clientY : e.clientY) - r.top };
+      }
+      function startDraw(e) { isDrawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }
+      function draw(e) { if (!isDrawing) return; const p = getPos(e); ctx.strokeStyle = drawingColor; ctx.lineWidth = brushSize; ctx.lineCap = 'round'; ctx.lineTo(p.x, p.y); ctx.stroke(); }
+      function stopDraw() { if (isDrawing) { ctx.closePath(); isDrawing = false; } }
+
+      canvas.onmousedown = startDraw; canvas.onmousemove = draw; canvas.onmouseup = stopDraw;
+      canvas.ontouchstart = (e) => { e.preventDefault(); startDraw(e); };
+      canvas.ontouchmove = (e) => { e.preventDefault(); draw(e); };
+      canvas.ontouchend = stopDraw;
+    }
+
+    function setBrushColor(c) { drawingColor = c; }
+    function setBrushSize(s) { brushSize = s; }
+    function clearCanvas() {
+      const canvas = document.getElementById('paintCanvas');
+      if (canvas) canvas.getContext('2d').fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function closeTabModal() { document.getElementById('tabModal').classList.add('hidden'); }
+    function escapeHtml(str) { return (str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m])); }
+
+    window.onload = function() {
+      loadSpeechBubble();
+      loadCustomColors();
+    };
+  </script>
+</body>
+</html>
