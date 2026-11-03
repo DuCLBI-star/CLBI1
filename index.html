@@ -85,7 +85,7 @@
     <nav class="flex items-center gap-2 sm:gap-3 overflow-x-auto py-1">
       <button onclick="openTabModal('home')" class="nav-pill active px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">home</button>
       <button onclick="openTabModal('sobre')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">sobre</button>
-      <button onclick="openTabModal('galeria')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">🖼️ galeria</button>
+      <button onclick="openTabModal('galeria')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">📁 galeria livre</button>
       <button onclick="openTabModal('contato')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">contato</button>
       <button onclick="openTabModal('pergunte')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">pergunte aqui</button>
       <button onclick="openTabModal('desenhar')" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide shrink-0">desenhar</button>
@@ -196,7 +196,7 @@
     </div>
   </main>
 
-  <!-- WIDGET DE BALÃO DE FALA FLUTUANTE (CANTO INFERIOR ESQUERDO) -->
+  <!-- WIDGET DE BALÃO DE FALA FLUTUANTE -->
   <div id="speechWidget" class="fixed bottom-4 left-4 z-40 max-w-xs sm:max-w-sm flex items-end gap-3 group">
     <div class="w-12 h-12 rounded-full bg-amber-800 border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
       💬
@@ -224,8 +224,6 @@
       </div>
 
       <div class="p-6 overflow-y-auto space-y-6 flex-1 bg-[#FAF8F5]">
-        
-        <!-- MODO LEITURA -->
         <div id="viewContainer" class="space-y-6">
           <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center border-b border-stone-200 pb-5">
             <div id="viewAvatar" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-2 border-white shadow-md flex-shrink-0 flex items-center justify-center text-3xl font-black text-white bg-stone-600 overflow-hidden"></div>
@@ -256,7 +254,6 @@
           </div>
         </div>
 
-        <!-- MODO EDIÇÃO DA FICHA (ADMIN) -->
         <form id="editCharacterForm" onsubmit="saveCharacterEdits(event)" class="hidden space-y-3 bg-white p-4 border border-amber-300 rounded-xl">
           <h3 class="text-xs font-bold text-amber-900 uppercase">Editar Dados do Personagem</h3>
           <input type="text" id="editCharName" placeholder="Nome Completo" class="w-full px-3 py-1.5 border rounded text-xs font-bold">
@@ -274,29 +271,25 @@
           </div>
         </form>
 
-        <!-- SEÇÃO DE COMENTÁRIOS -->
         <div class="pt-4 border-t border-stone-200">
           <h3 class="text-sm font-bold text-stone-900 mb-3 flex items-center justify-between">
             <span>💬 Comentários</span>
             <span id="commentBadge" class="text-xs bg-stone-200 text-stone-700 px-2 py-0.5 rounded-full font-bold">0</span>
           </h3>
-
           <form onsubmit="handleAddComment(event)" class="space-y-2 mb-4">
             <div class="flex gap-2">
-              <input type="text" id="commentAuthor" placeholder="Seu Nome" required class="w-1/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium focus:outline-none focus:border-stone-500">
-              <input type="text" id="commentText" placeholder="Escreva um comentário..." required class="w-2/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium focus:outline-none focus:border-stone-500">
+              <input type="text" id="commentAuthor" placeholder="Seu Nome" required class="w-1/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium">
+              <input type="text" id="commentText" placeholder="Escreva um comentário..." required class="w-2/3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium">
             </div>
-            <button type="submit" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-semibold py-1.5 rounded-lg text-xs uppercase tracking-wider transition-colors">Publicar Comentário</button>
+            <button type="submit" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-semibold py-1.5 rounded-lg text-xs uppercase tracking-wider">Publicar Comentário</button>
           </form>
-
           <div id="commentsList" class="space-y-2"></div>
         </div>
-
       </div>
     </div>
   </div>
 
-  <!-- JANELA/MODAL DE NAVEGAÇÃO SUPERIOR -->
+  <!-- JANELA/MODAL DE NAVEGAÇÃO -->
   <div id="tabModal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
     <div class="retro-window w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
       <div class="retro-window-header px-4 py-3 flex items-center justify-between">
@@ -331,11 +324,11 @@
       <div class="p-5 bg-[#FAF8F5] space-y-4 text-xs font-medium text-stone-700 leading-relaxed overflow-y-auto">
         <form id="exploreForm" onsubmit="handleExploreSubmit(event)" class="space-y-2 p-3 bg-white border border-stone-200 rounded-xl shadow-xs">
           <p id="exploreFormLabel" class="text-[11px] font-bold uppercase tracking-wider text-stone-500">Adicionar informação (Requer Senha)</p>
-          <input type="text" id="exploreTitle" placeholder="Título" maxlength="200" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-semibold focus:outline-none focus:border-stone-500">
-          <textarea id="exploreContent" rows="4" placeholder="Escreva aqui..." maxlength="10000" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium focus:outline-none focus:border-stone-500"></textarea>
+          <input type="text" id="exploreTitle" placeholder="Título" maxlength="200" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-semibold">
+          <textarea id="exploreContent" rows="4" placeholder="Escreva aqui..." maxlength="10000" class="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium"></textarea>
           <div class="flex gap-2">
-            <button type="submit" id="exploreSubmitBtn" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-bold py-1.5 rounded-lg text-xs uppercase tracking-wider transition-colors">Salvar / Adicionar</button>
-            <button type="button" id="exploreCancelBtn" onclick="cancelExploreEdit()" class="hidden px-4 bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold py-1.5 rounded-lg text-xs uppercase tracking-wider transition-colors">Cancelar</button>
+            <button type="submit" id="exploreSubmitBtn" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-bold py-1.5 rounded-lg text-xs uppercase">Salvar / Adicionar</button>
+            <button type="button" id="exploreCancelBtn" onclick="cancelExploreEdit()" class="hidden px-4 bg-stone-200 font-bold rounded-lg text-xs uppercase">Cancelar</button>
           </div>
         </form>
         <div id="exploreList" class="space-y-3"></div>
@@ -363,11 +356,11 @@
           <button onclick="deleteBookPage()" class="underline text-rose-700">apagar esta página</button>
         </div>
         <form id="bookForm" onsubmit="saveBookPage(event)" class="hidden space-y-2 p-3 bg-white rounded-xl">
-          <input id="bookTitle" placeholder="Título do capítulo (opcional)" maxlength="200" class="w-full px-3 py-1.5 border border-stone-300 rounded-lg text-xs">
-          <textarea id="bookContent" rows="8" placeholder="Escreva a história..." maxlength="20000" class="w-full px-3 py-1.5 border border-stone-300 rounded-lg text-xs"></textarea>
+          <input id="bookTitle" placeholder="Título do capítulo (opcional)" maxlength="200" class="w-full px-3 py-1.5 border rounded text-xs">
+          <textarea id="bookContent" rows="8" placeholder="Escreva a história..." maxlength="20000" class="w-full px-3 py-1.5 border rounded text-xs"></textarea>
           <div class="flex gap-2">
-            <button type="submit" class="flex-1 bg-amber-800 text-white font-bold py-1.5 rounded-lg text-xs uppercase">Salvar (Requer Senha)</button>
-            <button type="button" onclick="document.getElementById('bookForm').classList.add('hidden')" class="px-4 bg-stone-200 font-bold rounded-lg text-xs uppercase">Cancelar</button>
+            <button type="submit" class="flex-1 bg-amber-800 text-white font-bold py-1.5 rounded text-xs uppercase">Salvar (Requer Senha)</button>
+            <button type="button" onclick="document.getElementById('bookForm').classList.add('hidden')" class="px-4 bg-stone-200 font-bold rounded text-xs uppercase">Cancelar</button>
           </div>
         </form>
       </div>
@@ -378,18 +371,18 @@
     const ADMIN_PASS = "@DuD2010";
 
     function checkAdminAuth() {
-      const pass = prompt("Introduza a senha de administrador para guardar alterações:");
+      const pass = prompt("Introduza a senha de administrador (@DuD2010):");
       if (pass === ADMIN_PASS) return true;
-      alert("Senha incorreta! Alteração não autorizada.");
+      alert("Senha incorreta! Ação não autorizada.");
       return false;
     }
 
     const defaultCharacters = {
-      yume: { id: 'yume', name: 'Yume Miller', role: 'Capitã da CLBI-1, responsável pelas Operações de Voo e Pesquisa Científica.', age: '28 anos', birth: '01/01/2041', appearance: 'Mulher de cabelos lisos castanho-claros, olhos heterocromáticos (um verde e outro azul), pele clara, de origem nipo-brasileira.', personality: 'Ansiosa sob pressão, pragmática, focada, corajosa e levemente sarcástica.', bio: 'Líder da missão histórica de 2069. Após um salto temporal de mais de 7 mil anos, vê-se num futuro pós-apocalíptico onde começa a sofrer mutações físicas.' },
-      elijah: { id: 'elijah', name: 'Elijah Martins', role: 'Comunicação e Relatórios.', age: '34 anos', birth: '15/05/2035', appearance: 'Mulher negra, cabelos pretos cacheados, olhos verdes, nacionalidade estadunidense.', personality: 'Direta, perspicaz, protetora com os colegas e dona de um humor ácido.', bio: 'Responsável por manter o contacto contínuo com o centro de controlo em Terra e documentar a missão.' },
-      piata: { id: 'piata', name: 'Piatã', role: 'Suporte à Vida e Higiene.', age: '30 anos', birth: '10/11/2038', appearance: 'Homem de origem indígena (Wailacki), pele parda, olhos castanho-escuros, porte físico forte.', personality: 'Calmo, centrado, observador e com uma forte presença.', bio: 'Responsável pela gestão dos sistemas vitais da nave (oxigênio, água e reciclagem de ar).' },
-      tom: { id: 'tom', name: 'Tom Collins', role: 'Manutenção, Reparos e Segurança.', age: '59 anos', birth: '22/03/2010', appearance: 'Homem branco, ruivo com fios grisalhos, olhos azuis marcantes, nacionalidade russa.', personality: 'Severo, disciplinado, impaciente com distrações.', bio: 'Veterano de guerra russo e o membro mais velho da tripulação.' },
-      joaquin: { id: 'joaquin', name: 'Joaquin Bezerra', role: 'Manutenção e Reparos.', age: '25 anos', birth: '05/09/2044', appearance: 'Homem de pele parda, magro e com físico definido, cabelo liso preto, olhos castanho-escuros.', personality: 'Ansioso, falador quando está nervoso, carismático e brincalhão.', bio: 'O membro mais jovem da equipa ao lado de Yume.' }
+      yume: { id: 'yume', name: 'Yume Miller', role: 'Capitã da CLBI-1', age: '28 anos', birth: '01/01/2041', appearance: 'Cabelos lisos castanho-claros, olhos heterocromáticos.', personality: 'Ansiosa sob pressão, pragmática, focada.', bio: 'Líder da missão de 2069.' },
+      elijah: { id: 'elijah', name: 'Elijah Martins', role: 'Comunicação', age: '34 anos', birth: '15/05/2035', appearance: 'Mulher negra, cabelos pretos.', personality: 'Direta, perspicaz, humor ácido.', bio: 'Responsável pela ligação com a Terra.' },
+      piata: { id: 'piata', name: 'Piatã', role: 'Suporte à Vida', age: '30 anos', birth: '10/11/2038', appearance: 'Homem indígena, porte físico forte.', personality: 'Calmo, centrado.', bio: 'Gestão dos sistemas vitais da nave.' },
+      tom: { id: 'tom', name: 'Tom Collins', role: 'Manutenção e Segurança', age: '59 anos', birth: '22/03/2010', appearance: 'Ruivo com fios grisalhos.', personality: 'Severo, disciplinado.', bio: 'Veterano de guerra russo.' },
+      joaquin: { id: 'joaquin', name: 'Joaquin Bezerra', role: 'Manutenção', age: '25 anos', birth: '05/09/2044', appearance: 'Parda, cabelo liso preto.', personality: 'Ansioso, falador, carismático.', bio: 'Especialista em reparos.' }
     };
 
     function getCharacters() {
@@ -416,21 +409,19 @@
 
       const avatarContainer = document.getElementById('viewAvatar');
       const colorMap = { yume: 'from-rose-400 to-pink-500', elijah: 'from-purple-500 to-indigo-600', piata: 'from-emerald-400 to-teal-600', tom: 'from-amber-400 to-orange-500', joaquin: 'from-cyan-400 to-blue-600' };
-      const gradient = colorMap[char.id] || 'from-stone-500 to-stone-700';
-      avatarContainer.className = `w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-2 border-white shadow-md flex-shrink-0 flex items-center justify-center overflow-hidden bg-gradient-to-br ${gradient}`;
+      avatarContainer.className = `w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-2 border-white shadow-md flex-shrink-0 flex items-center justify-center overflow-hidden bg-gradient-to-br ${colorMap[char.id] || 'from-stone-500 to-stone-700'}`;
       avatarContainer.innerHTML = `<span class="text-3xl font-black text-white drop-shadow-md">${char.name.charAt(0)}</span>`;
 
       document.getElementById('viewContainer').classList.remove('hidden');
       document.getElementById('editCharacterForm').classList.add('hidden');
-
       renderComments();
-      const modal = document.getElementById('characterModal');
-      modal.classList.remove('hidden'); modal.classList.add('flex');
+      document.getElementById('characterModal').classList.remove('hidden');
+      document.getElementById('characterModal').classList.add('flex');
     }
 
     function closeCharacterModal() {
-      const modal = document.getElementById('characterModal');
-      modal.classList.add('hidden'); modal.classList.remove('flex');
+      document.getElementById('characterModal').classList.add('hidden');
+      document.getElementById('characterModal').classList.remove('flex');
       activeCharId = null;
     }
 
@@ -674,55 +665,69 @@
       renderBookPage();
     }
 
-    // --- MÓDULO GALERIA DE FOTOS DO PROJETO ---
-    function getGalleryPhotos() { return JSON.parse(localStorage.getItem('clbi_gallery') || '[]'); }
+    // --- MÓDULO GALERIA LIVRE PARA TODOS OS TIPOS DE ARQUIVOS ---
+    function getGalleryItems() { return JSON.parse(localStorage.getItem('clbi_gallery_free') || '[]'); }
 
-    function renderGalleryList() {
+    function renderGalleryGrid() {
       const container = document.getElementById('galleryGrid');
       if (!container) return;
-      const photos = getGalleryPhotos();
-      if (photos.length === 0) {
-        container.innerHTML = `<p class="col-span-full text-center text-stone-400 py-8 text-xs">Nenhuma foto adicionada à galeria do projeto ainda.</p>`;
+      const items = getGalleryItems();
+      if (items.length === 0) {
+        container.innerHTML = `<p class="col-span-full text-center text-stone-400 py-8 text-xs">Nenhum arquivo ou mídia adicionada na galeria ainda.</p>`;
         return;
       }
-      container.innerHTML = photos.map((item, index) => `
-        <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-xs flex flex-col group">
-          <div class="h-40 bg-stone-100 overflow-hidden relative">
-            <img src="${escapeHtml(item.url)}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-            <button onclick="deleteGalleryPhoto(${index})" class="absolute top-2 right-2 bg-rose-600 text-white w-6 h-6 rounded-full text-xs font-bold shadow-md hover:bg-rose-700">✕</button>
+      container.innerHTML = items.map((item, index) => {
+        let mediaHtml = '';
+        const url = item.url;
+        if (url.match(/\.(jpeg|jpg|gif|png|webp|svg)$/i) || url.startsWith('data:image')) {
+          mediaHtml = `<img src="${escapeHtml(url)}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover" />`;
+        } else if (url.match(/\.(mp4|webm|ogg)$/i)) {
+          mediaHtml = `<video src="${escapeHtml(url)}" controls class="w-full h-full object-cover"></video>`;
+        } else if (url.match(/\.(mp3|wav|ogg)$/i)) {
+          mediaHtml = `<div class="flex flex-col items-center justify-center h-full p-4 bg-amber-50 text-center"><span class="text-2xl mb-1">🎵</span><audio src="${escapeHtml(url)}" controls class="w-full"></audio></div>`;
+        } else {
+          mediaHtml = `<div class="flex flex-col items-center justify-center h-full p-4 bg-stone-100 text-center"><span class="text-3xl mb-1">📄</span><a href="${escapeHtml(url)}" target="_blank" class="text-xs text-blue-600 underline font-bold truncate max-w-full">Abrir Arquivo / Link</a></div>`;
+        }
+
+        return `
+          <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-xs flex flex-col group relative">
+            <div class="h-44 bg-stone-50 overflow-hidden relative">
+              ${mediaHtml}
+              <button onclick="deleteGalleryItem(${index})" class="absolute top-2 right-2 bg-rose-600 text-white w-6 h-6 rounded-full text-xs font-bold shadow-md hover:bg-rose-700">✕</button>
+            </div>
+            <div class="p-3">
+              <h4 class="text-xs font-bold text-stone-900">${escapeHtml(item.title)}</h4>
+              ${item.desc ? `<p class="text-[11px] text-stone-600 mt-0.5">${escapeHtml(item.desc)}</p>` : ''}
+            </div>
           </div>
-          <div class="p-3">
-            <h4 class="text-xs font-bold text-stone-900">${escapeHtml(item.title)}</h4>
-            ${item.desc ? `<p class="text-[11px] text-stone-600 mt-1">${escapeHtml(item.desc)}</p>` : ''}
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
-    function handleAddGalleryPhoto(e) {
+    function handleAddGalleryItem(e) {
       e.preventDefault();
-      if (!checkAdminAuth()) return;
-      const url = document.getElementById('galleryUrl').value.trim();
-      const title = document.getElementById('galleryTitle').value.trim();
-      const desc = document.getElementById('galleryDesc').value.trim();
+      if (!checkAdminAuth()) return; // Requer senha apenas para adicionar
+      const url = document.getElementById('galleryFileUrl').value.trim();
+      const title = document.getElementById('galleryFileTitle').value.trim();
+      const desc = document.getElementById('galleryFileDesc').value.trim();
       if (!url || !title) return;
 
-      const photos = getGalleryPhotos();
-      photos.push({ id: Date.now(), url, title, desc });
-      localStorage.setItem('clbi_gallery', JSON.stringify(photos));
+      const items = getGalleryItems();
+      items.push({ id: Date.now(), url, title, desc });
+      localStorage.setItem('clbi_gallery_free', JSON.stringify(items));
 
-      document.getElementById('galleryUrl').value = '';
-      document.getElementById('galleryTitle').value = '';
-      document.getElementById('galleryDesc').value = '';
-      renderGalleryList();
+      document.getElementById('galleryFileUrl').value = '';
+      document.getElementById('galleryFileTitle').value = '';
+      document.getElementById('galleryFileDesc').value = '';
+      renderGalleryGrid();
     }
 
-    function deleteGalleryPhoto(index) {
-      if (!checkAdminAuth()) return;
-      const photos = getGalleryPhotos();
-      photos.splice(index, 1);
-      localStorage.setItem('clbi_gallery', JSON.stringify(photos));
-      renderGalleryList();
+    function deleteGalleryItem(index) {
+      if (!checkAdminAuth()) return; // Requer senha para apagar
+      const items = getGalleryItems();
+      items.splice(index, 1);
+      localStorage.setItem('clbi_gallery_free', JSON.stringify(items));
+      renderGalleryGrid();
     }
 
     function getSpeechBubbleText() { return localStorage.getItem('clbi_speech') || "Olá! Bem-vindo ao desktop retro da missão CLBI-1! Explorar e interagir à vontade. ✨"; }
@@ -740,14 +745,8 @@
       if (!checkAdminAuth()) return;
       const newBg = prompt("Digite a cor de fundo do Desktop (Hex ou nome CSS):", localStorage.getItem('clbi_bg') || "#bfab9c");
       const newCircle = prompt("Digite a cor do Círculo Central (Hex ou nome CSS):", localStorage.getItem('clbi_circle') || "#cbbaa9");
-      if (newBg) {
-        localStorage.setItem('clbi_bg', newBg);
-        document.getElementById('desktopBody').style.backgroundColor = newBg;
-      }
-      if (newCircle) {
-        localStorage.setItem('clbi_circle', newCircle);
-        document.getElementById('heroCircle').style.backgroundColor = newCircle;
-      }
+      if (newBg) { localStorage.setItem('clbi_bg', newBg); document.getElementById('desktopBody').style.backgroundColor = newBg; }
+      if (newCircle) { localStorage.setItem('clbi_circle', newCircle); document.getElementById('heroCircle').style.backgroundColor = newCircle; }
     }
 
     function loadCustomColors() {
@@ -779,28 +778,26 @@
           </div>
         `;
       } else if (tab === 'galeria') {
-        title.textContent = 'galeria.html';
+        title.textContent = 'galeria-livre.html';
         content.innerHTML = `
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b pb-2">
-              <h2 class="text-base font-bold text-stone-900">🖼️ Galeria do Projeto</h2>
+              <h2 class="text-base font-bold text-stone-900">📁 Galeria de Arquivos e Mídia</h2>
               <span class="text-[11px] text-stone-500 font-semibold">Visualização pública</span>
             </div>
 
-            <!-- Form de Adicionar Foto (Requer Senha) -->
-            <form onsubmit="handleAddGalleryPhoto(event)" class="p-3 bg-white border border-amber-200 rounded-xl space-y-2 shadow-xs">
-              <span class="text-xs font-bold text-amber-900 uppercase block">➕ Adicionar Foto (Requer Senha)</span>
-              <input type="url" id="galleryUrl" placeholder="Link/URL da imagem (ex: https://...)" required class="w-full px-3 py-1.5 border rounded text-xs">
-              <input type="text" id="galleryTitle" placeholder="Título da Foto" required class="w-full px-3 py-1.5 border rounded text-xs font-semibold">
-              <input type="text" id="galleryDesc" placeholder="Descrição (opcional)" class="w-full px-3 py-1.5 border rounded text-xs">
-              <button type="submit" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-1.5 rounded text-xs uppercase">Publicar na Galeria</button>
+            <form onsubmit="handleAddGalleryItem(event)" class="p-3 bg-white border border-amber-200 rounded-xl space-y-2 shadow-xs">
+              <span class="text-xs font-bold text-amber-900 uppercase block">➕ Adicionar Mídia / Arquivo (Requer Senha)</span>
+              <input type="url" id="galleryFileUrl" placeholder="Link direto do arquivo (imagem, vídeo, áudio, PDF...)" required class="w-full px-3 py-1.5 border rounded text-xs">
+              <input type="text" id="galleryFileTitle" placeholder="Título do Arquivo" required class="w-full px-3 py-1.5 border rounded text-xs font-semibold">
+              <input type="text" id="galleryFileDesc" placeholder="Descrição curta (opcional)" class="w-full px-3 py-1.5 border rounded text-xs">
+              <button type="submit" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-1.5 rounded text-xs uppercase">Enviar para a Galeria</button>
             </form>
 
-            <!-- Grelha de Fotos -->
             <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2"></div>
           </div>
         `;
-        renderGalleryList();
+        renderGalleryGrid();
       } else if (tab === 'contato') {
         title.textContent = 'contato.html';
         content.innerHTML = `
@@ -861,10 +858,7 @@
       if (!checkAdminAuth()) return;
       const current = localStorage.getItem('clbi_author_note') || "Oiiiiii,\nÉ importante dizer que o projeto CLBI-1, NÃO está pronto e o que fiz até agora é apenas um grande resumo do que quero contar, então as coisas da história ocorrem muito rápido.\n\n— Du ;]";
       const newNote = prompt("Edite a Nota do Autor:", current);
-      if (newNote !== null) {
-        localStorage.setItem('clbi_author_note', newNote);
-        document.getElementById('authorNoteText').textContent = newNote;
-      }
+      if (newNote !== null) { localStorage.setItem('clbi_author_note', newNote); document.getElementById('authorNoteText').textContent = newNote; }
     }
 
     function getQuestions() { return JSON.parse(localStorage.getItem('clbi_questions') || '[]'); }
