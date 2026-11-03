@@ -100,96 +100,68 @@
   <!-- ÁREA DE TRABALHO / DESKTOP -->
   <main class="flex-1 relative p-6 sm:p-12 min-h-[calc(100vh-70px)] flex flex-col justify-between">
     
-    <!-- CÍRCULO CONCEITUAL CENTRALIZADO -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
       <div id="heroCircle" class="w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] rounded-full opacity-80 transition-colors duration-300" style="background-color: #cbbaa9;"></div>
     </div>
 
-    <!-- GRADE DE ÍCONES -->
     <div class="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-6 sm:gap-8 max-w-6xl mx-auto w-full pt-4 items-start justify-items-center">
-      
-      <!-- Ícone 1: Pasta CLBI-1 -->
       <div onclick="openTabModal('home')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-[#ffc526] border-2 border-white/90 rounded-3xl shadow-lg flex items-center justify-center relative">
-          <svg class="w-11 h-11 text-amber-900/80" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
+          <svg class="w-11 h-11 text-amber-900/80" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path></svg>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Pasta CLBI-1</span>
       </div>
 
-      <!-- Ícone 2: Yume.jpg -->
       <div onclick="openCharacterModal('yume')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-rose-400 to-pink-500 shadow-inner">
-            <span class="text-3xl font-black text-white drop-shadow-md">Y</span>
-          </div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-rose-400 to-pink-500 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">Y</span></div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Yume.jpg</span>
       </div>
 
-      <!-- Ícone 3: Elijah.jpg -->
       <div onclick="openCharacterModal('elijah')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 shadow-inner">
-            <span class="text-3xl font-black text-white drop-shadow-md">E</span>
-          </div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">E</span></div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Elijah.jpg</span>
       </div>
 
-      <!-- Ícone 4: Piatã.jpg -->
       <div onclick="openCharacterModal('piata')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-400 to-teal-600 shadow-inner">
-            <span class="text-3xl font-black text-white drop-shadow-md">P</span>
-          </div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-emerald-400 to-teal-600 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">P</span></div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Piatã.jpg</span>
       </div>
 
-      <!-- Ícone 5: Tom.jpg -->
       <div onclick="openCharacterModal('tom')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 shadow-inner">
-            <span class="text-3xl font-black text-white drop-shadow-md">T</span>
-          </div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">T</span></div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Tom.jpg</span>
       </div>
 
-      <!-- Ícone 6: Joaquin.jpg -->
       <div onclick="openCharacterModal('joaquin')" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-white border-2 border-white p-1 rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
-          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-600 shadow-inner">
-            <span class="text-3xl font-black text-white drop-shadow-md">J</span>
-          </div>
+          <div class="w-full h-full rounded-2xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-600 shadow-inner"><span class="text-3xl font-black text-white drop-shadow-md">J</span></div>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Joaquin.jpg</span>
       </div>
 
-      <!-- Ícone 7: Explorar -->
       <div onclick="openExploreModal()" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-[#7fb3c9] border-2 border-white/90 rounded-3xl shadow-lg flex items-center justify-center relative">
-          <svg class="w-11 h-11 text-sky-950/75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" fill="currentColor" stroke-linejoin="round"></path>
-          </svg>
+          <svg class="w-11 h-11 text-sky-950/75" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" fill="currentColor" stroke-linejoin="round"></path></svg>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Explorar</span>
       </div>
 
-      <!-- Ícone 8: Livro -->
       <div onclick="openBookModal()" class="desktop-icon flex flex-col items-center cursor-pointer group">
         <div class="w-20 h-20 sm:w-22 sm:h-22 bg-[#a0522d] border-2 border-white/90 rounded-3xl shadow-lg flex items-center justify-center">
           <svg class="w-11 h-11 text-amber-50/90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13" stroke-linejoin="round"></path></svg>
         </div>
         <span class="mt-2 text-xs font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2.5 py-0.5 rounded-md bg-stone-900/20 backdrop-blur-xs">Livro</span>
       </div>
-
     </div>
 
-    <!-- RODAPÉ DA ÁREA DE TRABALHO -->
     <div class="relative z-10 flex justify-between items-center text-xs font-semibold text-white/90 pt-6">
       <span>Área de Trabalho • Sistema CLBI-1</span>
       <span class="text-[11px] opacity-75">Sincronizado Localmente ✨</span>
@@ -198,12 +170,23 @@
 
   <!-- WIDGET DE BALÃO DE FALA FLUTUANTE -->
   <div id="speechWidget" class="fixed bottom-4 left-4 z-40 max-w-xs sm:max-w-sm flex items-end gap-3 group">
-    <div class="w-12 h-12 rounded-full bg-amber-800 border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
-      💬
-    </div>
+    <div class="w-12 h-12 rounded-full bg-amber-800 border-2 border-white shadow-lg flex items-center justify-center text-white font-bold text-lg shrink-0">💬</div>
     <div class="relative bg-white/90 backdrop-blur-md border border-stone-200 p-3 rounded-2xl shadow-xl text-xs font-medium text-stone-800 leading-relaxed">
       <p id="speechText">Olá! Bem-vindo ao desktop retro da missão CLBI-1! Explorar e interagir à vontade. ✨</p>
       <button onclick="editSpeechBubble()" class="mt-1 text-[10px] font-bold text-amber-800 underline hover:text-amber-900 block">✏️ Editar Aviso (Admin)</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE SENHA PERSONALIZADO (OCULTA CARACTERES) -->
+  <div id="passwordModal" class="fixed inset-0 bg-stone-900/50 backdrop-blur-sm hidden items-center justify-center p-4 z-[100]">
+    <div class="retro-window w-full max-w-sm p-5 space-y-4 shadow-2xl bg-white">
+      <h3 class="text-sm font-bold text-stone-900">🔒 Autenticação de Administrador</h3>
+      <p class="text-xs text-stone-600">Introduza a senha de administrador para autorizar esta alteração:</p>
+      <input type="password" id="adminPasswordInput" placeholder="Sua senha..." class="w-full px-3 py-2 border rounded-lg text-xs font-semibold focus:outline-none focus:border-amber-800">
+      <div class="flex gap-2">
+        <button onclick="submitAdminPassword()" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-bold py-2 rounded-lg text-xs uppercase">Confirmar</button>
+        <button onclick="closePasswordModal()" class="px-4 bg-stone-200 hover:bg-stone-300 font-bold py-2 rounded-lg text-xs uppercase">Cancelar</button>
+      </div>
     </div>
   </div>
 
@@ -369,12 +352,30 @@
 
   <script>
     const ADMIN_PASS = "@DuD2010";
+    let adminAuthCallback = null;
 
-    function checkAdminAuth() {
-      const pass = prompt("Introduza a senha de administrador (@DuD2010):");
-      if (pass === ADMIN_PASS) return true;
-      alert("Senha incorreta! Ação não autorizada.");
-      return false;
+    function checkAdminAuth(callback) {
+      adminAuthCallback = callback;
+      document.getElementById('adminPasswordInput').value = '';
+      document.getElementById('passwordModal').classList.remove('hidden');
+      document.getElementById('passwordModal').classList.add('flex');
+      document.getElementById('adminPasswordInput').focus();
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.add('hidden');
+      document.getElementById('passwordModal').classList.remove('flex');
+      adminAuthCallback = null;
+    }
+
+    function submitAdminPassword() {
+      const inputPass = document.getElementById('adminPasswordInput').value;
+      if (inputPass === ADMIN_PASS) {
+        closePasswordModal();
+        if (adminAuthCallback) adminAuthCallback();
+      } else {
+        alert("Senha incorreta! Ação não autorizada.");
+      }
     }
 
     const defaultCharacters = {
@@ -429,17 +430,18 @@
       const form = document.getElementById('editCharacterForm');
       const view = document.getElementById('viewContainer');
       if (form.classList.contains('hidden')) {
-        if (!checkAdminAuth()) return;
-        const chars = getCharacters();
-        const char = chars[activeCharId];
-        document.getElementById('editCharName').value = char.name;
-        document.getElementById('editCharRole').value = char.role;
-        document.getElementById('editCharAge').value = char.age;
-        document.getElementById('editCharBirth').value = char.birth;
-        document.getElementById('editCharAppearance').value = char.appearance;
-        document.getElementById('editCharPersonality').value = char.personality;
-        document.getElementById('editCharBio').value = char.bio;
-        form.classList.remove('hidden'); view.classList.add('hidden');
+        checkAdminAuth(() => {
+          const chars = getCharacters();
+          const char = chars[activeCharId];
+          document.getElementById('editCharName').value = char.name;
+          document.getElementById('editCharRole').value = char.role;
+          document.getElementById('editCharAge').value = char.age;
+          document.getElementById('editCharBirth').value = char.birth;
+          document.getElementById('editCharAppearance').value = char.appearance;
+          document.getElementById('editCharPersonality').value = char.personality;
+          document.getElementById('editCharBio').value = char.bio;
+          form.classList.remove('hidden'); view.classList.add('hidden');
+        });
       } else {
         form.classList.add('hidden'); view.classList.remove('hidden');
       }
@@ -499,13 +501,14 @@
     }
 
     function deleteComment(index) {
-      if (!checkAdminAuth()) return;
-      const allComments = getComments();
-      if (allComments[activeCharId]) {
-        allComments[activeCharId].splice(index, 1);
-        localStorage.setItem('clbi_comments', JSON.stringify(allComments));
-        renderComments();
-      }
+      checkAdminAuth(() => {
+        const allComments = getComments();
+        if (allComments[activeCharId]) {
+          allComments[activeCharId].splice(index, 1);
+          localStorage.setItem('clbi_comments', JSON.stringify(allComments));
+          renderComments();
+        }
+      });
     }
 
     function getExploreData() { return JSON.parse(localStorage.getItem('clbi_explore') || '[]'); }
@@ -552,30 +555,33 @@
 
     function handleExploreSubmit(e) {
       e.preventDefault();
-      if (!checkAdminAuth()) return;
-      const title = document.getElementById('exploreTitle').value.trim();
-      const content = document.getElementById('exploreContent').value.trim();
-      if (!title && !content) return;
-      let data = getExploreData();
-      if (exploreEditingId) {
-        data = data.map(i => i.id === exploreEditingId ? { ...i, title, content } : i);
-        exploreEditingId = null;
-      } else {
-        data.push({ id: Date.now(), tab: exploreTab, title, content });
-      }
-      localStorage.setItem('clbi_explore', JSON.stringify(data));
-      document.getElementById('exploreTitle').value = '';
-      document.getElementById('exploreContent').value = '';
-      renderExploreList();
+      checkAdminAuth(() => {
+        const title = document.getElementById('exploreTitle').value.trim();
+        const content = document.getElementById('exploreContent').value.trim();
+        if (!title && !content) return;
+        let data = getExploreData();
+        if (exploreEditingId) {
+          data = data.map(i => i.id === exploreEditingId ? { ...i, title, content } : i);
+          exploreEditingId = null;
+        } else {
+          data.push({ id: Date.now(), tab: exploreTab, title, content });
+        }
+        localStorage.setItem('clbi_explore', JSON.stringify(data));
+        document.getElementById('exploreTitle').value = '';
+        document.getElementById('exploreContent').value = '';
+        renderExploreList();
+      });
     }
 
     function editExploreEntry(id) {
-      const data = getExploreData().find(i => i.id === id);
-      if (!data) return;
-      exploreEditingId = id;
-      document.getElementById('exploreTitle').value = data.title;
-      document.getElementById('exploreContent').value = data.content;
-      document.getElementById('exploreCancelBtn').classList.remove('hidden');
+      checkAdminAuth(() => {
+        const data = getExploreData().find(i => i.id === id);
+        if (!data) return;
+        exploreEditingId = id;
+        document.getElementById('exploreTitle').value = data.title;
+        document.getElementById('exploreContent').value = data.content;
+        document.getElementById('exploreCancelBtn').classList.remove('hidden');
+      });
     }
 
     function cancelExploreEdit() {
@@ -586,10 +592,11 @@
     }
 
     function deleteExploreEntry(id) {
-      if (!checkAdminAuth()) return;
-      const data = getExploreData().filter(i => i.id !== id);
-      localStorage.setItem('clbi_explore', JSON.stringify(data));
-      renderExploreList();
+      checkAdminAuth(() => {
+        const data = getExploreData().filter(i => i.id !== id);
+        localStorage.setItem('clbi_explore', JSON.stringify(data));
+        renderExploreList();
+      });
     }
 
     function getBookPages() { return JSON.parse(localStorage.getItem('clbi_book') || '[]'); }
@@ -630,42 +637,45 @@
     }
 
     function editBookPage(existing) {
-      if (!checkAdminAuth()) return;
-      const pages = getBookPages();
-      const pg = existing ? pages[bookIndex] : null;
-      bookEditingId = pg ? pg.id : null;
-      document.getElementById('bookTitle').value = pg ? pg.title : '';
-      document.getElementById('bookContent').value = pg ? pg.content : '';
-      document.getElementById('bookForm').classList.remove('hidden');
+      checkAdminAuth(() => {
+        const pages = getBookPages();
+        const pg = existing ? pages[bookIndex] : null;
+        bookEditingId = pg ? pg.id : null;
+        document.getElementById('bookTitle').value = pg ? pg.title : '';
+        document.getElementById('bookContent').value = pg ? pg.content : '';
+        document.getElementById('bookForm').classList.remove('hidden');
+      });
     }
 
     function saveBookPage(e) {
       e.preventDefault();
-      const title = document.getElementById('bookTitle').value.trim();
-      const content = document.getElementById('bookContent').value.trim();
-      if (!title && !content) return;
-      let pages = getBookPages();
-      if (bookEditingId) {
-        pages = pages.map(p => p.id === bookEditingId ? { ...p, title, content } : p);
-      } else {
-        pages.push({ id: Date.now(), title, content });
-        bookIndex = pages.length - 1;
-      }
-      localStorage.setItem('clbi_book', JSON.stringify(pages));
-      document.getElementById('bookForm').classList.add('hidden');
-      renderBookPage();
+      checkAdminAuth(() => {
+        const title = document.getElementById('bookTitle').value.trim();
+        const content = document.getElementById('bookContent').value.trim();
+        if (!title && !content) return;
+        let pages = getBookPages();
+        if (bookEditingId) {
+          pages = pages.map(p => p.id === bookEditingId ? { ...p, title, content } : p);
+        } else {
+          pages.push({ id: Date.now(), title, content });
+          bookIndex = pages.length - 1;
+        }
+        localStorage.setItem('clbi_book', JSON.stringify(pages));
+        document.getElementById('bookForm').classList.add('hidden');
+        renderBookPage();
+      });
     }
 
     function deleteBookPage() {
-      if (!checkAdminAuth()) return;
-      let pages = getBookPages();
-      if (!pages[bookIndex]) return;
-      pages.splice(bookIndex, 1);
-      localStorage.setItem('clbi_book', JSON.stringify(pages));
-      renderBookPage();
+      checkAdminAuth(() => {
+        let pages = getBookPages();
+        if (!pages[bookIndex]) return;
+        pages.splice(bookIndex, 1);
+        localStorage.setItem('clbi_book', JSON.stringify(pages));
+        renderBookPage();
+      });
     }
 
-    // --- MÓDULO GALERIA LIVRE PARA TODOS OS TIPOS DE ARQUIVOS ---
     function getGalleryItems() { return JSON.parse(localStorage.getItem('clbi_gallery_free') || '[]'); }
 
     function renderGalleryGrid() {
@@ -706,47 +716,51 @@
 
     function handleAddGalleryItem(e) {
       e.preventDefault();
-      if (!checkAdminAuth()) return; // Requer senha apenas para adicionar
-      const url = document.getElementById('galleryFileUrl').value.trim();
-      const title = document.getElementById('galleryFileTitle').value.trim();
-      const desc = document.getElementById('galleryFileDesc').value.trim();
-      if (!url || !title) return;
+      checkAdminAuth(() => {
+        const url = document.getElementById('galleryFileUrl').value.trim();
+        const title = document.getElementById('galleryFileTitle').value.trim();
+        const desc = document.getElementById('galleryFileDesc').value.trim();
+        if (!url || !title) return;
 
-      const items = getGalleryItems();
-      items.push({ id: Date.now(), url, title, desc });
-      localStorage.setItem('clbi_gallery_free', JSON.stringify(items));
+        const items = getGalleryItems();
+        items.push({ id: Date.now(), url, title, desc });
+        localStorage.setItem('clbi_gallery_free', JSON.stringify(items));
 
-      document.getElementById('galleryFileUrl').value = '';
-      document.getElementById('galleryFileTitle').value = '';
-      document.getElementById('galleryFileDesc').value = '';
-      renderGalleryGrid();
+        document.getElementById('galleryFileUrl').value = '';
+        document.getElementById('galleryFileTitle').value = '';
+        document.getElementById('galleryFileDesc').value = '';
+        renderGalleryGrid();
+      });
     }
 
     function deleteGalleryItem(index) {
-      if (!checkAdminAuth()) return; // Requer senha para apagar
-      const items = getGalleryItems();
-      items.splice(index, 1);
-      localStorage.setItem('clbi_gallery_free', JSON.stringify(items));
-      renderGalleryGrid();
+      checkAdminAuth(() => {
+        const items = getGalleryItems();
+        items.splice(index, 1);
+        localStorage.setItem('clbi_gallery_free', JSON.stringify(items));
+        renderGalleryGrid();
+      });
     }
 
     function getSpeechBubbleText() { return localStorage.getItem('clbi_speech') || "Olá! Bem-vindo ao desktop retro da missão CLBI-1! Explorar e interagir à vontade. ✨"; }
     function loadSpeechBubble() { document.getElementById('speechText').textContent = getSpeechBubbleText(); }
     function editSpeechBubble() {
-      if (!checkAdminAuth()) return;
-      const newText = prompt("Edite o texto do balão de fala:", getSpeechBubbleText());
-      if (newText !== null) {
-        localStorage.setItem('clbi_speech', newText);
-        loadSpeechBubble();
-      }
+      checkAdminAuth(() => {
+        const newText = prompt("Edite o texto do balão de fala:", getSpeechBubbleText());
+        if (newText !== null) {
+          localStorage.setItem('clbi_speech', newText);
+          loadSpeechBubble();
+        }
+      });
     }
 
     function openCustomizeBgModal() {
-      if (!checkAdminAuth()) return;
-      const newBg = prompt("Digite a cor de fundo do Desktop (Hex ou nome CSS):", localStorage.getItem('clbi_bg') || "#bfab9c");
-      const newCircle = prompt("Digite a cor do Círculo Central (Hex ou nome CSS):", localStorage.getItem('clbi_circle') || "#cbbaa9");
-      if (newBg) { localStorage.setItem('clbi_bg', newBg); document.getElementById('desktopBody').style.backgroundColor = newBg; }
-      if (newCircle) { localStorage.setItem('clbi_circle', newCircle); document.getElementById('heroCircle').style.backgroundColor = newCircle; }
+      checkAdminAuth(() => {
+        const newBg = prompt("Digite a cor de fundo do Desktop (Hex ou nome CSS):", localStorage.getItem('clbi_bg') || "#bfab9c");
+        const newCircle = prompt("Digite a cor do Círculo Central (Hex ou nome CSS):", localStorage.getItem('clbi_circle') || "#cbbaa9");
+        if (newBg) { localStorage.setItem('clbi_bg', newBg); document.getElementById('desktopBody').style.backgroundColor = newBg; }
+        if (newCircle) { localStorage.setItem('clbi_circle', newCircle); document.getElementById('heroCircle').style.backgroundColor = newCircle; }
+      });
     }
 
     function loadCustomColors() {
@@ -855,10 +869,11 @@
     }
 
     function editAuthorNote() {
-      if (!checkAdminAuth()) return;
-      const current = localStorage.getItem('clbi_author_note') || "Oiiiiii,\nÉ importante dizer que o projeto CLBI-1, NÃO está pronto e o que fiz até agora é apenas um grande resumo do que quero contar, então as coisas da história ocorrem muito rápido.\n\n— Du ;]";
-      const newNote = prompt("Edite a Nota do Autor:", current);
-      if (newNote !== null) { localStorage.setItem('clbi_author_note', newNote); document.getElementById('authorNoteText').textContent = newNote; }
+      checkAdminAuth(() => {
+        const current = localStorage.getItem('clbi_author_note') || "Oiiiiii,\nÉ importante dizer que o projeto CLBI-1, NÃO está pronto e o que fiz até agora é apenas um grande resumo do que quero contar, então as coisas da história ocorrem muito rápido.\n\n— Du ;]";
+        const newNote = prompt("Edite a Nota do Autor:", current);
+        if (newNote !== null) { localStorage.setItem('clbi_author_note', newNote); document.getElementById('authorNoteText').textContent = newNote; }
+      });
     }
 
     function getQuestions() { return JSON.parse(localStorage.getItem('clbi_questions') || '[]'); }
@@ -898,22 +913,24 @@
     }
 
     function answerQuestion(index) {
-      if (!checkAdminAuth()) return;
-      const answer = prompt("Escreva a resposta:");
-      if (answer) {
-        const list = getQuestions();
-        list[index].answer = answer;
-        localStorage.setItem('clbi_questions', JSON.stringify(list));
-        renderQAList();
-      }
+      checkAdminAuth(() => {
+        const answer = prompt("Escreva a resposta:");
+        if (answer) {
+          const list = getQuestions();
+          list[index].answer = answer;
+          localStorage.setItem('clbi_questions', JSON.stringify(list));
+          renderQAList();
+        }
+      });
     }
 
     function deleteQuestion(index) {
-      if (!checkAdminAuth()) return;
-      const list = getQuestions();
-      list.splice(index, 1);
-      localStorage.setItem('clbi_questions', JSON.stringify(list));
-      renderQAList();
+      checkAdminAuth(() => {
+        const list = getQuestions();
+        list.splice(index, 1);
+        localStorage.setItem('clbi_questions', JSON.stringify(list));
+        renderQAList();
+      });
     }
 
     let drawingColor = '#5c4335';
